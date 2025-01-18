@@ -23,7 +23,6 @@ class DataPreprocessingStrat(DataStrategy):
                     "order_delivered_carrier_date",
                     "order_delivered_customer_date",
                     "order_estimated_delivery_date",
-                    "order_purchase_testimony"
                 ]
             )
 
@@ -34,7 +33,7 @@ class DataPreprocessingStrat(DataStrategy):
             data['review_comment_message'].fillna("No Review", inplace=True)
 
             data = data.select_dtypes(include=[np.number])
-            drop_cols = ['cusotmer_zip_code_prefix','order_item_id']
+            drop_cols = ['customer_zip_code_prefix','order_item_id']
             data = data.drop(columns=drop_cols)
             return data
         except Exception as e:

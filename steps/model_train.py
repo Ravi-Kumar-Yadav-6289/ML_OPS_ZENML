@@ -6,4 +6,3 @@ from zenml import step
 @step
 def train(df: pd.DataFrame) ->None:
     pass
-

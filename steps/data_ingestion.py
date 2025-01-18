@@ -29,4 +29,3 @@ def ingest_data(data_path: str)->pd.DataFrame:
     except Exception as e:
         logging.error(f"Error while loading the data : {e}")
         raise e
-    

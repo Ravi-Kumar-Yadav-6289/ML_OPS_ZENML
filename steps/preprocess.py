@@ -10,8 +10,8 @@ from typing import Tuple
 def pre_process(df: pd.DataFrame) ->Tuple[
     Annotated[pd.DataFrame,"x_train"],
     Annotated[pd.DataFrame,"x_test"],
-    Annotated[pd.DataFrame,"y_train"],
-    Annotated[pd.DataFrame,"y_test"],
+    Annotated[pd.Series,"y_train"],
+    Annotated[pd.Series,"y_test"],
 ]:
     """
     Args : data frame.
@@ -24,9 +24,10 @@ def pre_process(df: pd.DataFrame) ->Tuple[
 
         divide_strat =  DataSplitStrategy()
         splitting = DataCleaning(clean_data, DataSplitStrategy())
-        x_train, x_test,y_train,y_test =  splitting.handle()
-        #return x_train, x_test,y_train,y_test
+        x_train, x_test,y_train,y_test =  splitting.handle_data()
         logging.info("Data cleaning and splitting complete")
+        return x_train, x_test,y_train,y_test
+        
     except Exception as e:
         logging.error(f"error occoured while performing pipeline step tp clean{e}")
         raise e
