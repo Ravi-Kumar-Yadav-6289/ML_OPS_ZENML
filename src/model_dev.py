@@ -20,10 +20,13 @@ class LinearModel(ModelImplementation):
         return : model
         """
         try:
-            model = LinearRegression()
+            model = LinearRegression(**kwargs)
             model.fit(x_train, y_train)
             logging.info("Model trained successfully")
             return model
         except Exception as e:
             logging.error(f"Error in training the model {e}")
             raise e
+        
+
+# i can similarly implement other models like Random Forest, Decision Tree etc. here and and add them to the pipelines....

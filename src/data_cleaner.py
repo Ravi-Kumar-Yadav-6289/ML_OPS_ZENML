@@ -37,7 +37,7 @@ class DataPreprocessingStrat(DataStrategy):
             data = data.drop(columns=drop_cols)
             return data
         except Exception as e:
-            logging.error(f"{"Error in preprocessing the data {e}"}")
+            logging.error(f"Error in preprocessing the data {e}")
             raise e
 
 class DataSplitStrategy(DataStrategy):
