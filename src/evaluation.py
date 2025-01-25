@@ -7,14 +7,14 @@ from sklearn.metrics import mean_squared_error, r2_score
 class EvalutaionStrategy(ABC):
     
     @abstractmethod
-    def evaluate(self, y_true, y_test)-> None:
+    def calc_score(self, y_true, y_test)-> None:
         # abstract method hai isko extend karna hai thik hai....
         pass
 
 
 class RMSE(EvalutaionStrategy):
     
-    def evaluate(self, y_true:np.ndarray, y_pred:np.ndarray)-> None:
+    def calc_score(self, y_true:np.ndarray, y_pred:np.ndarray)-> float:
         """
         Args : y_true, y_pred
         return : None
@@ -30,7 +30,7 @@ class RMSE(EvalutaionStrategy):
         
 class R2_score(EvalutaionStrategy):
     
-    def evaluate(self, y_true, y_pred)-> None:
+    def calc_score(self, y_true, y_pred)-> float:
         """
         Args : y_true, y_pred
         return : None
@@ -46,7 +46,7 @@ class R2_score(EvalutaionStrategy):
 
 class MSE(EvalutaionStrategy):
     
-    def evaluate(self, y_true, y_pred)-> None:
+    def calc_score(self, y_true, y_pred)-> float:
         """
         Args : y_true, y_pred
         return : None

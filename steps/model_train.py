@@ -4,14 +4,14 @@ import logging
 from zenml import step
 from src.model_dev import LinearModel
 from sklearn.base import RegressorMixin
-from .config import ModelNameConfig
+from steps.config import ModelNameConfig
 
 
 @step
-def train(x_train,x_test,y_train,y_test,config = ModelNameConfig) -> RegressorMixin:
+def train(x_train,y_train,model_config) -> any:
     model = None
     try:
-        if config.model_name == "LinearRegression":
+        if model_config.model_name == "LinearRegression":
             model = LinearModel()
             trained_model = model.train(x_train,y_train)
             logging.info("Model trained successfully")

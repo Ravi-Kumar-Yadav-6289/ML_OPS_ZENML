@@ -23,7 +23,7 @@ def pre_process(df: pd.DataFrame) ->Tuple[
         clean_data = pre_prcessing.handle_data()
 
         divide_strat =  DataSplitStrategy()
-        splitting = DataCleaning(clean_data, DataSplitStrategy())
+        splitting = DataCleaning(clean_data, divide_strat)
         x_train, x_test,y_train,y_test =  splitting.handle_data()
         logging.info("Data cleaning and splitting complete")
         return x_train, x_test,y_train,y_test
